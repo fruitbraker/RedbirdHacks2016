@@ -1,7 +1,9 @@
 package com.ercpng.redbirdhacks2016.activities;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
@@ -16,7 +18,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button bWhite, bGreen, bYellow, bBlue, bBlack, bBrown;
-    private TextView tv;
+    private TextView tv, timer;
     private Toast toast;
 
     private Random random;
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bBrown.setOnClickListener(this);
 
         tv = (TextView) findViewById(R.id.tvColor);
+        timer = (TextView) findViewById(R.id.tvTime);
 
         color[0] = "White";
         color[1] = "Green";
@@ -57,6 +60,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         random = new Random();
         toast = new Toast(getApplicationContext());
+
+        Timer time = new Timer(timer);
+        time.run();
 
         generateNext();
     }
@@ -102,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             toast.setGravity(Gravity.TOP|Gravity.CENTER, 0, 0);
             toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
         } else {
-            toast.setGravity(Gravity.TOP|Gravity.CENTER, 0, 0);
+            toast.setGravity(Gravity.TOP | Gravity.CENTER, 0, 0);
             toast.makeText(getApplicationContext(), "Whoops!", Toast.LENGTH_SHORT).show();
         }
         generateNext();
@@ -133,5 +139,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(MainActivity.this, "Uhoh, BUG BUG BUG BUG BUG. SQUASH IT MUAHAHAHA", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    class Timer implements Runnable {
+
+        TextView tvTimer;
+
+        Timer(TextView tv) {
+            tvTimer = tv;
+
+            new CountDownTimer(60000, 1000) {
+
+                public void onTick(long millisUntilFinished) {
+                    int seconds = (int) millisUntilFinished / 1000;
+                    if(seconds >= 10) {
+                        tvTimer.setText("0:" + seconds);
+                    } else {
+                        tvTimer.setText("0:0" + seconds);
+                    }
+
+                }
+
+                public void onFinish() {
+                    startActivity(new Intent(getApplicationContext(), InfoActivity.class));
+                }
+            }.start();
+
+        }
+
+        @Override
+        public void run() {
+
+        }
     }
 }
