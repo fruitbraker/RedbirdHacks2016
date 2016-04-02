@@ -37,4 +37,9 @@ public class MyApplication extends Application{
     public static long getTime() {
         return allTime;
     }
+
+    public static void reset() {
+        correct = incorrect = 0;
+        allTime = 0;
+    }
 }

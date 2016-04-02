@@ -1,7 +1,9 @@
 package com.ercpng.redbirdhacks2016.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 
 import com.ercpng.redbirdhacks2016.R;
@@ -24,7 +26,19 @@ public class InfoActivity extends AppCompatActivity {
 
 
         tvAvg = (TextView) findViewById(R.id.tvAverageTime);
-        tvAvg.setText("Average time (ms): " + (MyApplication.getTime()/(MyApplication.getCorrect() + MyApplication.getIncorrect())));
+        tvAvg.setText("Average time (ms): " + (MyApplication.getTime()/(MyApplication.getCorrect()
+                + MyApplication.getIncorrect())));
 
+    }
+
+    public void playAgain(View v) {
+        MyApplication.reset();
+        startActivity(new Intent(getApplicationContext(), SplashActivity.class));
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        finish();
     }
 }
