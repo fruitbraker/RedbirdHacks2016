@@ -6,4 +6,4 @@ This simple Android application will consist a series of very simple game. It wi
 The purpose of this application is to stimulate the brain brain. The picked up brain signals by the headband will then be used to diagnose certain mental conditions, such ad ADHD. 
 
 
-Contributors of this entire hackathon: [names]
+Contributors of this entire hackathon: Sam, Nihar, Raymond, Eric
