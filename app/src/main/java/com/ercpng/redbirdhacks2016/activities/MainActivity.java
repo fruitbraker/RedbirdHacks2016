@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
         } else {
             toast.setGravity(Gravity.TOP|Gravity.CENTER, 0, 0);
-            toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
+            toast.makeText(getApplicationContext(), "Whoops!", Toast.LENGTH_SHORT).show();
         }
         generateNext();
     }
