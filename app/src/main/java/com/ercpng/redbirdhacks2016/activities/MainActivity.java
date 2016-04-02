@@ -17,6 +17,8 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final long EFFECTIVE_TIMER = 30000;
+
     private Button bWhite, bGreen, bYellow, bBlue, bBlack, bBrown;
     private TextView tv, timer;
     private Toast toast;
@@ -151,7 +153,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Timer(TextView tv) {
             tvTimer = tv;
 
-            new CountDownTimer(10000, 1000) {
+            new CountDownTimer(EFFECTIVE_TIMER, 1000) {
 
                 public void onTick(long millisUntilFinished) {
                     int seconds = (int) millisUntilFinished / 1000;
