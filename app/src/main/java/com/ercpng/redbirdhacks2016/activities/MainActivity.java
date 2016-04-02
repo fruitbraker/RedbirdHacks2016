@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import com.ercpng.redbirdhacks2016.R;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -21,7 +23,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView tv, timer;
     private Toast toast;
 
+    private ArrayList<Long> time;
+
     private Random random;
+
+    long startTime;
 
     private String[] color = new String[6];
     private int textColor, text;
@@ -68,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void generateNext() {
+        startTime = SystemClock.elapsedRealtimeNanos();
         textColor = random.nextInt((5-0) + 1) + 0;
         text = random.nextInt((5-0) + 1) + 0;
 
@@ -104,13 +111,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void checkAnswer(int input) {
+        long elapsedTime = (SystemClock.elapsedRealtimeNanos() - startTime) / 1000000;
         if(input == textColor) {
+            MyApplication.correct();
             toast.setGravity(Gravity.TOP|Gravity.CENTER, 0, 0);
-            toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
+            toast.makeText(getApplicationContext(), elapsedTime + "", Toast.LENGTH_SHORT).show();
         } else {
+            MyApplication.incorrect();
             toast.setGravity(Gravity.TOP | Gravity.CENTER, 0, 0);
             toast.makeText(getApplicationContext(), "Whoops!", Toast.LENGTH_SHORT).show();
         }
+        MyApplication.addTime(elapsedTime);
         generateNext();
     }
 
@@ -148,7 +159,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Timer(TextView tv) {
             tvTimer = tv;
 
-            new CountDownTimer(60000, 1000) {
+            new CountDownTimer(10000, 1000) {
 
                 public void onTick(long millisUntilFinished) {
                     int seconds = (int) millisUntilFinished / 1000;
