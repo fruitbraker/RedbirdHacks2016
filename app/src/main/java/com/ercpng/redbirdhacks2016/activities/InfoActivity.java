@@ -20,7 +20,7 @@ public class InfoActivity extends AppCompatActivity {
         tvCorrect.setText("Number of correct: " + MyApplication.getCorrect());
 
         tvIncorrect = (TextView) findViewById(R.id.tvIncorrect);
-        tvIncorrect.setText("Number of correct: " + MyApplication.getIncorrect());
+        tvIncorrect.setText("Number of incorrect: " + MyApplication.getIncorrect());
 
 
         tvAvg = (TextView) findViewById(R.id.tvAverageTime);
