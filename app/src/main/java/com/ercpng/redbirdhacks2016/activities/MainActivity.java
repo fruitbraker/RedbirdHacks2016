@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -114,12 +113,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         long elapsedTime = (SystemClock.elapsedRealtimeNanos() - startTime) / 1000000;
         if(input == textColor) {
             MyApplication.correct();
-            toast.setGravity(Gravity.TOP|Gravity.CENTER, 0, 0);
-            toast.makeText(getApplicationContext(), elapsedTime + "", Toast.LENGTH_SHORT).show();
         } else {
             MyApplication.incorrect();
-            toast.setGravity(Gravity.TOP | Gravity.CENTER, 0, 0);
-            toast.makeText(getApplicationContext(), "Whoops!", Toast.LENGTH_SHORT).show();
         }
         MyApplication.addTime(elapsedTime);
         generateNext();
