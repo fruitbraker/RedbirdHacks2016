@@ -45,4 +45,13 @@
         android:onClick="playAgain"
         android:layout_marginBottom="58dp" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/tvAllTime"
+        android:layout_below="@+id/tvAverageTime"
+        android:layout_alignStart="@+id/tvAverageTime" />
+
 </RelativeLayout>

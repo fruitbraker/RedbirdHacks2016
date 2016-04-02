@@ -2,11 +2,18 @@ package com.ercpng.redbirdhacks2016.activities;
 
 import android.app.Application;
 
-public class MyApplication extends Application{
+public class MyApplication extends Application {
 
-    private static int correct = 0, incorrect = 0;
-    private static long allTime = 0;
+    private static MyApplication instance;
 
+    private int correct = 0, incorrect = 0;
+    private long addedTime = 0;
+    private String allTime = "";
+
+
+    public MyApplication() {
+
+    }
 
     @Override
     public void onCreate() {
@@ -14,32 +21,45 @@ public class MyApplication extends Application{
     }
 
 
-    public static void correct() {
+    public void correct() {
         correct++;
     }
 
-    public static void incorrect() {
+    public void incorrect() {
         incorrect++;
     }
 
-    public static int getCorrect() {
+    public int getCorrect() {
         return correct;
     }
 
-    public static int getIncorrect() {
+    public int getIncorrect() {
         return incorrect;
     }
 
-    public static void addTime(long time) {
-        allTime += time;
+    public void addTime(long time) {
+        addedTime += time;
+        allTime += time + "  ";
     }
 
-    public static long getTime() {
+    public String getAllTime() {
         return allTime;
     }
 
-    public static void reset() {
-        correct = incorrect = 0;
-        allTime = 0;
+    public long getTime() {
+        return addedTime;
     }
+
+    public void reset() {
+        correct = incorrect = 0;
+        addedTime = 0;
+    }
+
+    public static MyApplication getInstance() {
+        if(instance == null){
+            instance = new MyApplication();
+        }
+        return instance;
+    }
+
 }

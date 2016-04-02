@@ -11,7 +11,7 @@ import com.ercpng.redbirdhacks2016.R;
 
 public class InfoActivity extends AppCompatActivity {
 
-    private TextView tvCorrect, tvIncorrect, tvAvg;
+    private TextView tvCorrect, tvIncorrect, tvAvg, tvAll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,20 +19,23 @@ public class InfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_info);
 
         tvCorrect = (TextView) findViewById(R.id.tvCorrect);
-        tvCorrect.setText("Number of correct: " + MyApplication.getCorrect());
+        tvCorrect.setText("Number of correct: " + MyApplication.getInstance().getCorrect());
 
         tvIncorrect = (TextView) findViewById(R.id.tvIncorrect);
-        tvIncorrect.setText("Number of incorrect: " + MyApplication.getIncorrect());
+        tvIncorrect.setText("Number of incorrect: " + MyApplication.getInstance().getIncorrect());
 
 
         tvAvg = (TextView) findViewById(R.id.tvAverageTime);
-        tvAvg.setText("Average time (ms): " + (MyApplication.getTime()/(MyApplication.getCorrect()
-                + MyApplication.getIncorrect())));
+        tvAvg.setText("Average time (ms): " + (MyApplication.getInstance().getTime()/(MyApplication.getInstance().getCorrect()
+                + MyApplication.getInstance().getIncorrect())));
+
+        tvAll = (TextView) findViewById(R.id.tvAllTime);
+        tvAll.setText(MyApplication.getInstance().getAllTime());
 
     }
 
     public void playAgain(View v) {
-        MyApplication.reset();
+        MyApplication.getInstance().reset();
         startActivity(new Intent(getApplicationContext(), SplashActivity.class));
     }
 

@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import com.ercpng.redbirdhacks2016.R;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -21,8 +20,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button bWhite, bGreen, bYellow, bBlue, bBlack, bBrown;
     private TextView tv, timer;
     private Toast toast;
-
-    private ArrayList<Long> time;
 
     private Random random;
 
@@ -112,11 +109,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void checkAnswer(int input) {
         long elapsedTime = (SystemClock.elapsedRealtimeNanos() - startTime) / 1000000;
         if(input == textColor) {
-            MyApplication.correct();
+            MyApplication.getInstance().correct();
         } else {
-            MyApplication.incorrect();
+            MyApplication.getInstance().incorrect();
         }
-        MyApplication.addTime(elapsedTime);
+        MyApplication.getInstance().addTime(elapsedTime);
         generateNext();
     }
 
