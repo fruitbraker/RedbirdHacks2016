@@ -26,6 +26,5 @@ public class InfoActivity extends AppCompatActivity {
         tvAvg = (TextView) findViewById(R.id.tvAverageTime);
         tvAvg.setText("Average time (ms): " + (MyApplication.getTime()/(MyApplication.getCorrect() + MyApplication.getIncorrect())));
 
-
     }
 }

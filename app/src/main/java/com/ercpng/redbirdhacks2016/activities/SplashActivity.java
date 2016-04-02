@@ -19,4 +19,10 @@ public class SplashActivity extends AppCompatActivity {
     public void makeToast(View view) {
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        finish();
+    }
 }
