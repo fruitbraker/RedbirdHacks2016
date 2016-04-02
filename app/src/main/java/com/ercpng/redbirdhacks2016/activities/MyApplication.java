@@ -53,6 +53,7 @@ public class MyApplication extends Application {
     public void reset() {
         correct = incorrect = 0;
         addedTime = 0;
+        allTime = "";
     }
 
     public static MyApplication getInstance() {
