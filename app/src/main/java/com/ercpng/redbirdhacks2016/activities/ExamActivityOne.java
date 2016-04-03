@@ -15,7 +15,7 @@ import com.ercpng.redbirdhacks2016.R;
 
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class ExamActivityOne extends AppCompatActivity implements View.OnClickListener {
 
     private static final long EFFECTIVE_TIMER = 30000;
 
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_exam_one);
         init();
     }
 
@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 checkAnswer(5);
                 break;
             default:
-                Toast.makeText(MainActivity.this, "Uhoh, BUG BUG BUG BUG BUG. SQUASH IT MUAHAHAHA", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ExamActivityOne.this, "Uhoh, BUG BUG BUG BUG BUG. SQUASH IT MUAHAHAHA", Toast.LENGTH_SHORT).show();
         }
 
     }

@@ -18,7 +18,7 @@ public class SplashActivity extends AppCompatActivity {
 
 
     public void makeToast(View view) {
-        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        startActivity(new Intent(getApplicationContext(), ExamActivityOne.class));
     }
 
     @Override
