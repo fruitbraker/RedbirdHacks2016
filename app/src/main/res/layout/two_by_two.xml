@@ -18,13 +18,26 @@
             android:layout_width="5dp"
             android:layout_height="match_parent"
             android:background="#000000" />
-        <LinearLayout
-            android:orientation="horizontal"
+        <RelativeLayout
             android:layout_height="match_parent"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:id="@+id/one"
-            android:background="@android:color/transparent"/>
+            android:background="@android:color/transparent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="left"
+                android:id="@+id/tvTimerN"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
     </LinearLayout>
     <View
         android:layout_width="match_parent"

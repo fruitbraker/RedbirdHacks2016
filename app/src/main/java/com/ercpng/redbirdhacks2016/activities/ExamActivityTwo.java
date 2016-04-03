@@ -1,7 +1,9 @@
 package com.ercpng.redbirdhacks2016.activities;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +11,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ercpng.redbirdhacks2016.R;
@@ -17,8 +21,13 @@ import java.util.Random;
 
 public class ExamActivityTwo extends AppCompatActivity implements View.OnClickListener {
 
-    private LinearLayout zero, one, two, three;
+    private static final long EFFECTIVE_TIMER = 32000;
+
+    private LinearLayout zero, two, three;
+    private RelativeLayout one;
     private Button same, different;
+
+    private TextView timer;
 
     private Random random;
 
@@ -35,12 +44,14 @@ public class ExamActivityTwo extends AppCompatActivity implements View.OnClickLi
 
     private void init() {
         zero = (LinearLayout) findViewById(R.id.zero);
-        one = (LinearLayout) findViewById(R.id.one);
+        one = (RelativeLayout) findViewById(R.id.one);
         two = (LinearLayout) findViewById(R.id.two);
         three = (LinearLayout) findViewById(R.id.three);
 
         same = (Button) findViewById(R.id.twoSame);
         different = (Button) findViewById(R.id.twoDifferent);
+
+        timer = (TextView) findViewById(R.id.tvTimerN);
 
         same.setOnClickListener(this);
         different.setOnClickListener(this);
@@ -49,6 +60,9 @@ public class ExamActivityTwo extends AppCompatActivity implements View.OnClickLi
 
         previousState = 0;
         lastTwoState = 0;
+
+        Timer time = new Timer(timer);
+        time.run();
 
         Handler generateFirstTwo = new Handler();
         generateFirstTwo.postDelayed(new Runnable() {
@@ -187,4 +201,43 @@ public class ExamActivityTwo extends AppCompatActivity implements View.OnClickLi
         MyApplication.getInstance().addTime(elapsedTime);
         generateNext();
     }
+
+    class Timer implements Runnable {
+
+        TextView tvTimer;
+
+        Timer(TextView tv) {
+            tvTimer = tv;
+
+            new CountDownTimer(EFFECTIVE_TIMER, 1000) {
+
+                public void onTick(long millisUntilFinished) {
+                    int seconds = (int) millisUntilFinished / 1000;
+                    if(seconds >= 10) {
+                        tvTimer.setText("0:" + seconds);
+                    } else {
+                        tvTimer.setText("0:0" + seconds);
+                    }
+
+                }
+
+                public void onFinish() {
+                    startActivity(new Intent(getApplicationContext(), InfoActivity.class));
+                }
+            }.start();
+
+        }
+
+        @Override
+        public void run() {
+
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        finish();
+    }
+
 }

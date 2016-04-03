@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
-        android:id="@+id/tvCorrectN"
+        android:id="@+id/tvCorrect"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -20,8 +20,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
-        android:id="@+id/tvIncorrectN"
-        android:layout_below="@+id/tvCorrectN"
+        android:id="@+id/tvIncorrect"
+        android:layout_below="@+id/tvCorrect"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -29,20 +29,20 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
-        android:id="@+id/tvAverageTimeN"
-        android:layout_below="@+id/tvIncorrectN"
+        android:id="@+id/tvAverageTime"
+        android:layout_below="@+id/tvIncorrect"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Finish"
+        android:text="Next Game"
         android:textSize="30sp"
         android:background="@android:color/transparent"
         android:id="@+id/button2"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:onClick="finishGame"
+        android:onClick="nextGame"
         android:layout_marginBottom="58dp" />
 
     <TextView
@@ -50,8 +50,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Next game"
-        android:id="@+id/tvAllTimeN"
-        android:layout_below="@+id/tvAverageTimeN"
-        android:layout_alignStart="@+id/tvAverageTimeN" />
+        android:id="@+id/tvAllTime"
+        android:layout_below="@+id/tvAverageTime"
+        android:layout_alignStart="@+id/tvAverageTime" />
 
 </RelativeLayout>

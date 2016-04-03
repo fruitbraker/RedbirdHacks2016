@@ -28,7 +28,7 @@
         </activity>
 
         <activity
-            android:name=".activities.InfoActivity">
+            android:name=".activities.TransitionToNBack">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,6 +38,16 @@
 
         <activity
             android:name=".activities.ExamActivityTwo"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activities.InfoActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
