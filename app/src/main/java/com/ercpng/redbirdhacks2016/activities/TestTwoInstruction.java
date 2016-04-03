@@ -7,18 +7,16 @@ import android.view.View;
 
 import com.ercpng.redbirdhacks2016.R;
 
-public class SplashActivity extends AppCompatActivity {
+public class TestTwoInstruction extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
-        MyApplication.getInstance();
+        setContentView(R.layout.activity_instruction_two);
     }
 
-
-    public void makeToast(View view) {
-        startActivity(new Intent(getApplicationContext(), TestOneInstruction.class));
+    public void goToColor(View v) {
+        startActivity(new Intent(getApplicationContext(), ExamActivityTwo.class));
     }
 
     @Override
@@ -26,4 +24,5 @@ public class SplashActivity extends AppCompatActivity {
         super.onPause();
         finish();
     }
+
 }

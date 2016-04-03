@@ -37,7 +37,7 @@ public class TransitionToNBack extends AppCompatActivity {
 
     public void nextGame(View v) {
         MyApplication.getInstance().reset();
-        startActivity(new Intent(getApplicationContext(), ExamActivityTwo.class));
+        startActivity(new Intent(getApplicationContext(), TestTwoInstruction.class));
     }
 
     @Override
