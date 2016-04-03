@@ -26,6 +26,7 @@ public class InfoActivity extends AppCompatActivity {
 
 
         tvAvg = (TextView) findViewById(R.id.tvAverageTime);
+
         tvAvg.setText("Average time (ms): " + (MyApplication.getInstance().getTime()/(MyApplication.getInstance().getCorrect()
                 + MyApplication.getInstance().getIncorrect())));
 
@@ -34,9 +35,9 @@ public class InfoActivity extends AppCompatActivity {
 
     }
 
-    public void playAgain(View v) {
+    public void nextGame(View v) {
         MyApplication.getInstance().reset();
-        startActivity(new Intent(getApplicationContext(), SplashActivity.class));
+        startActivity(new Intent(getApplicationContext(), ExamActivityTwo.class));
     }
 
     @Override

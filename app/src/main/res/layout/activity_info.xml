@@ -36,20 +36,20 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Test Again"
+        android:text="Next Game"
         android:textSize="30sp"
         android:background="@android:color/transparent"
         android:id="@+id/button2"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:onClick="playAgain"
+        android:onClick="nextGame"
         android:layout_marginBottom="58dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
+        android:text="Next game"
         android:id="@+id/tvAllTime"
         android:layout_below="@+id/tvAverageTime"
         android:layout_alignStart="@+id/tvAverageTime" />

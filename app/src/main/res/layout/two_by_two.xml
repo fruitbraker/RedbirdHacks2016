@@ -12,7 +12,7 @@
             android:layout_height="match_parent"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:id="@+id/one"
+            android:id="@+id/zero"
             android:background="@android:color/transparent"/>
         <View
             android:layout_width="5dp"
@@ -23,7 +23,7 @@
             android:layout_height="match_parent"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:id="@+id/two"
+            android:id="@+id/one"
             android:background="@android:color/transparent"/>
     </LinearLayout>
     <View
@@ -36,11 +36,12 @@
         android:layout_height="0dp"
         android:layout_width="match_parent"
         android:layout_weight="1">
-        <Button
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_height="match_parent"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:id="@+id/three"
+            android:id="@+id/two"
             android:background="@android:color/transparent"/>
         <View
             android:layout_width="5dp"
@@ -51,7 +52,7 @@
             android:layout_height="match_parent"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:id="@+id/four"
+            android:id="@+id/three"
             android:background="@android:color/transparent"/>
     </LinearLayout>
 </LinearLayout>
