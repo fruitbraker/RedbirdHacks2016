@@ -17,7 +17,7 @@ import java.util.Random;
 
 public class ExamActivityOne extends AppCompatActivity implements View.OnClickListener {
 
-    private static final long EFFECTIVE_TIMER = 10000;
+    private static final long EFFECTIVE_TIMER = 30000;
 
     private Button bWhite, bGreen, bYellow, bBlue, bBlack, bBrown;
     private TextView tv, timer;

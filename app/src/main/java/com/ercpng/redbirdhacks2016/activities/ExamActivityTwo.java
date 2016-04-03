@@ -21,7 +21,7 @@ import java.util.Random;
 
 public class ExamActivityTwo extends AppCompatActivity implements View.OnClickListener {
 
-    private static final long EFFECTIVE_TIMER = 10000;
+    private static final long EFFECTIVE_TIMER = 33000;
 
     private LinearLayout zero, two, three;
     private RelativeLayout one;
