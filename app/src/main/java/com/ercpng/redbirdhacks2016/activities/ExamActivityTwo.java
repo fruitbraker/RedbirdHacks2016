@@ -182,18 +182,18 @@ public class ExamActivityTwo extends AppCompatActivity implements View.OnClickLi
         if(i) {
             if(currentPos == lastTwoState) {
                 MyApplication.getInstance().correct(elapsedTime);
-                Toast.makeText(ExamActivityTwo.this, "Correct", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(ExamActivityTwo.this, "Correct", Toast.LENGTH_SHORT).show();
             } else {
                 MyApplication.getInstance().incorrect(elapsedTime);
-                Toast.makeText(ExamActivityTwo.this, "Incorrect", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(ExamActivityTwo.this, "Incorrect", Toast.LENGTH_SHORT).show();
             }
         } else {
             if(currentPos == lastTwoState) {
                 MyApplication.getInstance().incorrect(elapsedTime);
-                Toast.makeText(ExamActivityTwo.this, "Incorrect", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(ExamActivityTwo.this, "Incorrect", Toast.LENGTH_SHORT).show();
             } else {
                 MyApplication.getInstance().correct(elapsedTime);
-                Toast.makeText(ExamActivityTwo.this, "Correct", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(ExamActivityTwo.this, "Correct", Toast.LENGTH_SHORT).show();
             }
         }
         lastTwoState = previousState;

@@ -17,7 +17,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
 
-    public void makeToast(View view) {
+    public void goToColor(View view) {
         startActivity(new Intent(getApplicationContext(), TestOneInstruction.class));
     }
 
