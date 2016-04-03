@@ -50,7 +50,7 @@ public class InfoActivityFinal extends AppCompatActivity {
                 + MyApplication.getInstance().getAllTimeIncorrect());
 
         new DoSpark().execute("https://api.ciscospark.com/v1/messages", "POST",
-                "Correct:    " + MyApplication.getInstance().getAllTimeCorrect() + "Incorrect:   "
+                "NBack Exam:           Correct:    " + MyApplication.getInstance().getAllTimeCorrect() + "Incorrect:   "
                         + MyApplication.getInstance().getAllTimeIncorrect());
 
     }
