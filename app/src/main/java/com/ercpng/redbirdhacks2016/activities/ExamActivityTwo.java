@@ -21,7 +21,7 @@ import java.util.Random;
 
 public class ExamActivityTwo extends AppCompatActivity implements View.OnClickListener {
 
-    private static final long EFFECTIVE_TIMER = 33000;
+    private static final long EFFECTIVE_TIMER = 34000;
 
     private LinearLayout zero, two, three;
     private RelativeLayout one;
@@ -81,23 +81,22 @@ public class ExamActivityTwo extends AppCompatActivity implements View.OnClickLi
             lastTwoState = currentPos;
         else if(counter == 1)
             previousState = currentPos;
-        Toast.makeText(getApplicationContext(), "" + currentPos, Toast.LENGTH_SHORT).show();
-        switch(currentPos) {
-            case 0:
-                zero.setBackgroundColor(Color.rgb(63, 81, 181));
-                break;
-            case 1:
-                one.setBackgroundColor(Color.rgb(63, 81, 181));
-                break;
-            case 2:
-                two.setBackgroundColor(Color.rgb(63, 81, 181));
-                break;
-            case 3:
-                three.setBackgroundColor(Color.rgb(63, 81, 181));
-                break;
-            default:
-                Toast.makeText(getApplicationContext(), "BUGSADFASDJFAWESf", Toast.LENGTH_LONG).show();
+
+        if(lastTwoState == currentPos) {
+            Handler sleep = new Handler();
+            sleep.postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    showColor();
+                }
+            }, 250);
+        } else {
+            showColor();
         }
+
+        Toast.makeText(getApplicationContext(), "" + currentPos, Toast.LENGTH_SHORT).show();
+        showColor();
         Handler sleep = new Handler();
         sleep.postDelayed(new Runnable() {
 
@@ -139,8 +138,24 @@ public class ExamActivityTwo extends AppCompatActivity implements View.OnClickLi
     private void generateNext() {
         resetColor(currentPos);
         currentPos = random.nextInt((3-0) + 1) + 0;
+
+        if(currentPos == previousState) {
+            Handler sleep = new Handler();
+            sleep.postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    showColor();
+                }
+            }, 250);
+        } else {
+            showColor();
+        }
         Log.d("POSITIONG", "Last 2:  " + lastTwoState + "        Previous:    " + previousState);
         startTime = SystemClock.elapsedRealtimeNanos();
+    }
+
+    private void showColor() {
         switch(currentPos) {
             case 0:
                 zero.setBackgroundColor(Color.rgb(63, 81, 181));
