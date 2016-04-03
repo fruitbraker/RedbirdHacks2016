@@ -17,7 +17,7 @@ import java.util.Random;
 
 public class ExamActivityOne extends AppCompatActivity implements View.OnClickListener {
 
-    private static final long EFFECTIVE_TIMER = 30000;
+    private static final long EFFECTIVE_TIMER = 10000;
 
     private Button bWhite, bGreen, bYellow, bBlue, bBlack, bBrown;
     private TextView tv, timer;
@@ -111,11 +111,10 @@ public class ExamActivityOne extends AppCompatActivity implements View.OnClickLi
     private void checkAnswer(int input) {
         long elapsedTime = (SystemClock.elapsedRealtimeNanos() - startTime) / 1000000;
         if(input == textColor) {
-            MyApplication.getInstance().correct();
+            MyApplication.getInstance().correct(elapsedTime);
         } else {
-            MyApplication.getInstance().incorrect();
+            MyApplication.getInstance().incorrect(elapsedTime);
         }
-        MyApplication.getInstance().addTime(elapsedTime);
         generateNext();
     }
 

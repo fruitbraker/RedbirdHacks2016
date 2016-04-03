@@ -15,7 +15,7 @@ public class TestTwoInstruction extends AppCompatActivity {
         setContentView(R.layout.activity_instruction_two);
     }
 
-    public void goToColor(View v) {
+    public void goToN(View v) {
         startActivity(new Intent(getApplicationContext(), ExamActivityTwo.class));
     }
 

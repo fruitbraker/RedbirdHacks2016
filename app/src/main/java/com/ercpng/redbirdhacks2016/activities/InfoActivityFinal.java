@@ -22,32 +22,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class TransitionToNBack extends AppCompatActivity {
-
-    private static String auth_key = "ZDcxN2JmYTktNTE0Mi00MmRhLWJmNTYtN2Y5N2Q2NmYwNzliYTgzMDdlOWUtZTM3";
+public class InfoActivityFinal extends AppCompatActivity {
 
     private TextView tvCorrect, tvIncorrect, tvAvg, tvAll;
+
+    private static String auth_key = "ZDcxN2JmYTktNTE0Mi00MmRhLWJmNTYtN2Y5N2Q2NmYwNzliYTgzMDdlOWUtZTM3";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_transition_n);
+        setContentView(R.layout.activity_info);
 
-        tvCorrect = (TextView) findViewById(R.id.tvCorrect);
+        tvCorrect = (TextView) findViewById(R.id.tvCorrectN);
         tvCorrect.setText("Number of correct: " + MyApplication.getInstance().getCorrect());
 
-        tvIncorrect = (TextView) findViewById(R.id.tvIncorrect);
+        tvIncorrect = (TextView) findViewById(R.id.tvIncorrectN);
         tvIncorrect.setText("Number of incorrect: " + MyApplication.getInstance().getIncorrect());
 
 
-        tvAvg = (TextView) findViewById(R.id.tvAverageTime);
+        tvAvg = (TextView) findViewById(R.id.tvAverageTimeN);
 
-        tvAvg.setText("Average time (ms): " + (MyApplication.getInstance().getTime()/(MyApplication.getInstance().getCorrect()
+        tvAvg.setText("Average time (ms): " + (MyApplication.getInstance().getTime() / (MyApplication.getInstance().getCorrect()
                 + MyApplication.getInstance().getIncorrect())));
 
-        tvAll = (TextView) findViewById(R.id.tvAllTime);
+        tvAll = (TextView) findViewById(R.id.tvAllTimeN);
         tvAll.setText("Correct:    " + MyApplication.getInstance().getAllTimeCorrect() + "Incorrect:   "
-            + MyApplication.getInstance().getAllTimeIncorrect());
+                + MyApplication.getInstance().getAllTimeIncorrect());
 
         new DoSpark().execute("https://api.ciscospark.com/v1/messages", "POST",
                 "Correct:    " + MyApplication.getInstance().getAllTimeCorrect() + "Incorrect:   "
@@ -55,9 +55,9 @@ public class TransitionToNBack extends AppCompatActivity {
 
     }
 
-    public void nextGame(View v) {
+    public void finishGame(View v) {
         MyApplication.getInstance().reset();
-        startActivity(new Intent(getApplicationContext(), TestTwoInstruction.class));
+        startActivity(new Intent(getApplicationContext(), SplashActivity.class));
     }
 
     @Override
@@ -88,7 +88,7 @@ public class TransitionToNBack extends AppCompatActivity {
                 con.setRequestMethod(params[1]);
                 con.setInstanceFollowRedirects(true);
                 con.setRequestProperty("Content-type", "application/json");
-                con.setRequestProperty ("Authorization", "Bearer " + auth_key);
+                con.setRequestProperty("Authorization", "Bearer " + auth_key);
                 con.setReadTimeout(10000);
                 con.setConnectTimeout(15000);
                 con.setRequestMethod("POST");

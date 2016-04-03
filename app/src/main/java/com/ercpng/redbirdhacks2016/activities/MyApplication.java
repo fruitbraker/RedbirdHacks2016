@@ -8,7 +8,7 @@ public class MyApplication extends Application {
 
     private int correct = 0, incorrect = 0;
     private long addedTime = 0;
-    private String allTime = "";
+    private String allTimeCorrect = "", allTimeIncorrect = "";
 
 
     public MyApplication() {
@@ -21,12 +21,16 @@ public class MyApplication extends Application {
     }
 
 
-    public void correct() {
+    public void correct(long time) {
         correct++;
+        addedTime += time;
+        allTimeCorrect += time + "  ";
     }
 
-    public void incorrect() {
+    public void incorrect(long time) {
         incorrect++;
+        addedTime += time;
+        allTimeIncorrect += time + "  ";
     }
 
     public int getCorrect() {
@@ -37,23 +41,26 @@ public class MyApplication extends Application {
         return incorrect;
     }
 
-    public void addTime(long time) {
-        addedTime += time;
-        allTime += time + "  ";
+    public String getAllTimeCorrect() {
+        return allTimeCorrect;
     }
 
-    public String getAllTime() {
-        return allTime;
+    public String getAllTimeIncorrect() {
+        return allTimeIncorrect;
     }
 
     public long getTime() {
         return addedTime;
     }
 
+    public long getAddedTime() {
+        return addedTime;
+    }
+
     public void reset() {
         correct = incorrect = 0;
         addedTime = 0;
-        allTime = "";
+        allTimeCorrect = allTimeIncorrect = "";
     }
 
     public static MyApplication getInstance() {
