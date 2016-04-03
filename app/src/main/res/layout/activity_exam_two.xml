@@ -11,7 +11,7 @@
         android:layout_gravity="center"
         android:orientation="horizontal">
 
-        <include layout="@layout/three_by_three" />
+        <include layout="@layout/two_by_two" />
 
     </LinearLayout>
     <LinearLayout
@@ -31,6 +31,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="#000000" >
+                </View>
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -44,9 +49,11 @@
 
             </RelativeLayout>
 
-
-
         </LinearLayout>
+        <View
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:background="#000000" />
         <LinearLayout
             android:layout_height="match_parent"
             android:layout_width="0dp"
@@ -56,17 +63,22 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="#000000"
+                    android:id="@+id/view">
+                </View>
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentStart="true"
                     android:background="@android:color/transparent"
                     android:id="@+id/threeDifferent"
                     android:text="Different"
                     android:textSize="30sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:layout_below="@+id/view"
+                    android:layout_alignParentStart="true" />
 
             </RelativeLayout>
 
