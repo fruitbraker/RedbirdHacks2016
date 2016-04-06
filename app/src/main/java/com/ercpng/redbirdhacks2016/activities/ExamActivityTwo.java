@@ -94,8 +94,6 @@ public class ExamActivityTwo extends AppCompatActivity implements View.OnClickLi
         } else {
             showColor();
         }
-
-        Toast.makeText(getApplicationContext(), "" + currentPos, Toast.LENGTH_SHORT).show();
         showColor();
         Handler sleep = new Handler();
         sleep.postDelayed(new Runnable() {
